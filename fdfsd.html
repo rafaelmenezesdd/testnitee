@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração e Horários</title>
+    <style>
+        /* Estilos básicos */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilos das abas */
+        
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        /* Estilo dos botões das abas */
+        
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        /* Altera a cor de fundo do botão quando ativo */
+        
+        .tab button.active {
+            background-color: #ccc;
+        }
+        /* Estilo do conteúdo das abas */
+        
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        /* Exibe o conteúdo da aba ativa */
+        
+        .tabcontent.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Admin')" id="defaultOpen">Administração</button>
+        <button class="tablinks" onclick="openTab(event, 'Horarios')">Horários</button>
+    </div>
+
+    <div id="Admin" class="tabcontent">
+        <h3>Administração</h3>
+        <p>Conteúdo relacionado à administração aqui.</p>
+    </div>
+
+    <div id="Horarios" class="tabcontent">
+        <h3>Horários</h3>
+        <p>Conteúdo relacionado aos horários aqui.</p>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Abre a primeira aba por padrão
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>

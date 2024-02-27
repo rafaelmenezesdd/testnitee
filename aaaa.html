@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #photo-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        #photo-container img {
+            max-width: 10%;
+            height: auto;
+        }
+        
+        #button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 0 20%;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="photo-container">
+        <img id="displayed-photo" src="download.jpg" alt="Foto">
+    </div>
+
+    <div id="button-container">
+        <button onclick="changePhoto(-1)">Anterior</button>
+        <button onclick="changePhoto(1)">Próxima</button>
+    </div>
+
+    <script>
+        var currentPhotoIndex = 0;
+        var photos = ["download.jpg", "naruto1.jpg", "naruto2.jpg"]; // Adicione mais imagens conforme necessário
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
+            } else if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
+            }
+            var displayedPhoto = document.getElementById("displayed-photo");
+            displayedPhoto.src = photos[currentPhotoIndex];
+        }
+    </script>
+
+    <h1>Voltar para Página Inicial</h1>
+    <p>Esta é a página inicial.</p>
+    <button onclick="redirectToAnotherPage()">Ir para outra página</button>
+
+    <script>
+        function redirectToAnotherPage() {
+            // Redirecionar para outra página
+            window.location.href = "adm.html";
+            v
+        }
+    </script>
+</body>
+
+</html>
